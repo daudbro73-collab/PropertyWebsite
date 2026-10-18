@@ -1,0 +1,296 @@
+.property-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  overflow: visible;
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: none;
+}
+
+/* Gradient border via pseudo-element */
+.property-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--gradient-border-width);
+  background: linear-gradient(135deg, rgba(201,168,76,0.2) 0%, rgba(244,212,124,0.4) 30%, rgba(201,168,76,0.12) 60%, rgba(244,212,124,0.35) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: all var(--transition-base);
+  z-index: 2;
+}
+
+.property-card:hover {
+  box-shadow: var(--gold-shadow);
+  transform: translateY(-6px);
+}
+
+.property-card:hover::before {
+  background: var(--gold-gradient-border);
+}
+
+.property-card__image-wrapper {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.property-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.property-card:hover .property-card__image {
+  transform: scale(1.05);
+}
+
+.property-card__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 4;
+  opacity: 0;
+  transition: opacity var(--transition-base), background var(--transition-base);
+}
+
+.property-card:hover .property-card__nav {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .property-card__nav {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .property-card__image-wrapper {
+    height: 220px;
+  }
+
+  .property-card__title {
+    font-size: 1.05rem;
+  }
+
+  .property-card__specs {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .property-card__listing-badge {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+  }
+
+  .property-card__price-tag {
+    font-size: 0.95rem;
+    padding: 6px 12px;
+  }
+}
+
+.property-card__nav:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.property-card__nav--prev {
+  left: var(--space-sm);
+}
+
+.property-card__nav--next {
+  right: var(--space-sm);
+}
+
+.property-card__dots {
+  position: absolute;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 4;
+}
+
+.property-card__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background var(--transition-base), transform var(--transition-base);
+}
+
+.property-card__dot.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+.property-card__badge {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  padding: 6px 14px;
+  background: var(--gold-gradient);
+  color: white;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.property-card__listing-badge {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.property-card__listing-badge--sale {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.property-card__listing-badge--rent {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.property-card__price-tag {
+  position: absolute;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  color: white;
+  border-radius: var(--radius-md);
+  font-size: 1.1rem;
+  font-weight: 700;
+  z-index: 3;
+}
+
+html[dir="rtl"] .property-card__price-tag {
+  right: auto;
+  left: var(--space-md);
+}
+
+.property-card__content {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  background: var(--bg-card);
+}
+
+.property-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.property-card__location {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-md);
+}
+
+.property-card__specs {
+  display: flex;
+  gap: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-light);
+  margin-top: auto;
+}
+
+.property-card__spec {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.property-card__spec-icon {
+  width: 20px;
+  font-size: 1rem;
+  text-align: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.property-card__spec-value {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.property-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  border-top: 1px solid var(--border-light);
+  background: var(--bg-card);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  position: relative;
+  z-index: 1;
+}
+
+.property-card__detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--gold-accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: gap var(--transition-fast);
+}
+
+.property-card__detail-link:hover {
+  gap: var(--space-sm);
+}
+
+/* Placeholder for properties without images */
+.property-card__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--gold-light) 100%);
+}

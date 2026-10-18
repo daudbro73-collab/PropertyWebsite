@@ -1,0 +1,113 @@
+.testimonials {
+  background: var(--bg-secondary);
+}
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+
+.testimonials__card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: relative;
+  border: var(--gradient-border-width) solid transparent;
+  background-image: linear-gradient(var(--bg-card), var(--bg-card)),
+    linear-gradient(135deg, rgba(201, 168, 76, 0.15) 0%, rgba(244, 212, 124, 0.25) 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: box-shadow var(--transition-base);
+}
+
+.testimonials__card:hover {
+  box-shadow: var(--gold-shadow);
+}
+
+.testimonials__stars {
+  color: #f4d47c;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.testimonials__quote {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  flex: 1;
+  margin: 0;
+  font-style: italic;
+}
+
+.testimonials__author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-light);
+}
+
+.testimonials__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gold-gradient);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.testimonials__name {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.testimonials__meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.testimonials__trust {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2xl);
+  flex-wrap: wrap;
+}
+
+.testimonials__trust-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.testimonials__trust-number {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  background: var(--gold-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.testimonials__trust-item span:last-child {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+}

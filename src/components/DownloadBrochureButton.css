@@ -1,0 +1,37 @@
+.brochure-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid var(--gold-primary, #c9a84c);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--gold-primary, #c9a84c);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  margin-top: var(--space-md);
+}
+
+.brochure-btn:hover:not(:disabled) {
+  background: var(--gold-gradient);
+  color: white;
+  border-color: transparent;
+  box-shadow: var(--gold-shadow);
+}
+
+.brochure-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.brochure-btn__icon {
+  font-size: 1.1rem;
+}
+
+.brochure-btn--outline-light {
+  border-color: rgba(201, 168, 76, 0.5);
+}

@@ -1,0 +1,207 @@
+.about-page {
+  padding-top: calc(var(--header-height) + var(--space-3xl));
+  min-height: 100vh;
+}
+
+.about-hero {
+  text-align: center;
+  padding-bottom: var(--space-3xl);
+}
+
+.about-hero__title {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  margin-bottom: var(--space-md);
+}
+
+.about-hero__subtitle {
+  font-size: 1.15rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  padding: var(--space-4xl) 0;
+}
+
+.about-story__image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--gold-light) 100%);
+  min-height: 400px;
+}
+
+.about-story__photo {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.about-story__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-story__title {
+  font-size: 1.8rem;
+  margin-bottom: var(--space-lg);
+}
+
+.about-story__text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+/* Values */
+.about-values {
+  padding: var(--space-4xl) 0;
+  background: var(--bg-secondary);
+}
+
+.about-values__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+}
+
+.about-value-card {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: var(--gradient-border-width) solid transparent;
+  background-image: linear-gradient(var(--bg-card), var(--bg-card)), linear-gradient(135deg, rgba(201,168,76,0.2) 0%, rgba(244,212,124,0.35) 50%, rgba(201,168,76,0.15) 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: all var(--transition-base);
+}
+
+.about-value-card:hover {
+  box-shadow: var(--gold-shadow);
+  transform: translateY(-4px);
+  background-image: linear-gradient(var(--bg-card), var(--bg-card)), var(--gold-gradient-border);
+}
+
+.about-value-card__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--space-md);
+  background: var(--gold-light);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-accent);
+}
+
+.about-value-card__icon svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.about-value-card__title {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-sm);
+}
+
+.about-value-card__text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Team */
+.about-team {
+  padding: var(--space-4xl) 0;
+}
+
+.about-team__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+.about-team__card {
+  text-align: center;
+}
+
+.about-team__avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto var(--space-md);
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-light), var(--bg-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  padding: 4px; /* Space for the gradient border */
+  border: 3px solid transparent;
+  background-image: linear-gradient(linear-gradient(135deg, var(--gold-light), var(--bg-secondary)), linear-gradient(135deg, var(--gold-light), var(--bg-secondary))), var(--gold-gradient-border);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.about-team__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.about-team__name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.about-team__role {
+  font-size: 0.9rem;
+  color: var(--gold-accent);
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .about-story {
+    grid-template-columns: 1fr;
+  }
+
+  .about-values__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-values__grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .about-story {
+    gap: var(--space-2xl);
+  }
+
+  .about-story__image {
+    max-height: 280px;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page {
+    padding-top: calc(var(--header-height) + var(--space-2xl));
+  }
+
+  .about-values__grid {
+    max-width: 100%;
+  }
+}
