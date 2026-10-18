@@ -1,94 +1,117 @@
 <div align="center">
+  <h1>🏡 Property Hub</h1>
+  <p><strong>Full-featured real estate SPA — property listings, mortgage calculator, market charts, and PDF export</strong></p>
 
-# 🏡 PropertyWebsite
-
-**Modern real estate platform built with React 19 — property listings, mortgage calculator, and PDF reports**
-
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
-[![Vite](https://img.shields.io/badge/Vite-Latest-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
-[![Recharts](https://img.shields.io/badge/Recharts-3.8-22d3ee?style=for-the-badge)](https://recharts.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
-
-[🌐 Live Demo](#) · [📖 Documentation](#)
-
+  [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
+  [![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev)
+  [![React Router](https://img.shields.io/badge/React_Router-7-CA4245?style=flat-square&logo=reactrouter&logoColor=white)](https://reactrouter.com)
+  [![Recharts](https://img.shields.io/badge/Recharts-3.8-22d3ee?style=flat-square)](https://recharts.org)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-22c55e?style=flat-square)](LICENSE)
 </div>
 
 ---
 
-## 📋 Overview
+## Overview
 
-**PropertyWebsite** is a feature-rich real estate SPA (Single Page Application) that allows users to browse property listings, filter by parameters, compare properties side-by-side, calculate mortgage payments, and export property details to PDF.
+Property Hub is a modern real estate SPA built with **React 19** and **Vite**. It covers the full property browsing workflow — from filtering a catalog and comparing listings, through an interactive mortgage calculator, to exporting a property summary as a PDF.
 
----
-
-## ✨ Features
-
-- 🏘️ **Property listings** — filterable catalog with photos, specs, and pricing
-- 🔍 **Advanced filters** — by price, location, bedrooms, property type
-- 📊 **Interactive charts** — price trends and market analytics via Recharts
-- 🧮 **Mortgage calculator** — monthly payment estimation with amortization schedule
-- 📄 **PDF export** — generate property summary reports via jsPDF
-- 🗺️ **Property map** — visual location overview
-- 📱 **Responsive design** — works on all screen sizes
-- 🌐 **Multi-language** — internationalization support
+The codebase is structured as a single-page application with client-side routing (React Router 7), data visualization (Recharts), and PDF generation (jsPDF) — no backend required.
 
 ---
 
-## 🚀 Quick Start
+## Features
+
+### Property Catalog
+- Grid / list toggle with smooth layout transition
+- Filter by price range, bedrooms, bathrooms, property type, location
+- Sort by price (asc/desc), newest, area
+- Responsive property cards with photo gallery, specs, and price badge
+
+### Property Detail Page
+- Full photo gallery with thumbnail navigation
+- Key stats: price, area (sqft/m²), rooms, floor, year built
+- Agent contact form
+- Neighborhood overview section
+- Share & save (localStorage favorites)
+
+### Mortgage Calculator
+- Loan amount, interest rate, term input
+- Monthly payment breakdown: principal + interest
+- Amortization schedule table (full 30-year breakdown)
+- Recharts area chart — principal vs interest over time
+
+### Market Analytics
+- Price trend chart by district (Recharts LineChart)
+- Average price per sqm comparison
+- Supply/demand indicators
+
+### PDF Export
+- One-click property summary PDF via jsPDF
+- Includes: photos, specs, price, agent info, generated date
+
+---
+
+## Quick Start
 
 ```bash
 git clone https://github.com/daudbro73-collab/PropertyWebsite.git
 cd PropertyWebsite
 npm install
-npm run dev
+npm run dev      # http://localhost:5173
 ```
 
-Open `http://localhost:5173`
-
-### Production build
-
 ```bash
-npm run build    # → dist/ folder
+npm run build    # Production build → dist/
 npm run preview  # Preview production build locally
+npm run lint     # ESLint check
 ```
 
 ---
 
-## 🏗️ Project Structure
+## Architecture
 
 ```
 PropertyWebsite/
 ├── src/
-│   ├── components/         # Reusable UI components
-│   ├── pages/              # Route-based pages
-│   ├── data/               # Property data & mock API
-│   └── utils/              # Helpers (PDF, formatting)
-├── public/                 # Static assets
-├── dist/                   # Production build output
+│   ├── pages/
+│   │   ├── Home.jsx           # Landing + featured listings
+│   │   ├── Catalog.jsx        # Filterable property list
+│   │   ├── Property.jsx       # Individual property detail
+│   │   ├── Calculator.jsx     # Mortgage calculator + amortization
+│   │   └── Analytics.jsx      # Market charts page
+│   ├── components/
+│   │   ├── PropertyCard/      # Listing card (grid + list view)
+│   │   ├── Filters/           # Filter sidebar / drawer
+│   │   ├── MortgageForm/      # Calculator inputs
+│   │   ├── Charts/            # Recharts wrappers
+│   │   └── ui/                # Button, Badge, Modal, etc.
+│   ├── data/
+│   │   └── properties.js      # Mock property catalog
+│   └── utils/
+│       ├── mortgage.js        # Amortization formula
+│       ├── pdfExport.js       # jsPDF report generator
+│       └── formatters.js      # Currency, area, date
+├── public/
 ├── index.html
 └── vite.config.js
 ```
 
 ---
 
-## 💡 Tech Stack
+## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Framework | React 19 |
-| Build Tool | Vite |
-| Routing | React Router DOM 7 |
-| Charts | Recharts 3.8 |
-| PDF | jsPDF 4 |
-| Icons | React Icons 5 |
-| Linting | ESLint |
+| | Technology | Purpose |
+|-|------------|---------|
+| ⚛️ | React 19 | UI framework |
+| ⚡ | Vite | Dev server + build tool |
+| 🗺️ | React Router 7 | Client-side routing |
+| 📊 | Recharts 3.8 | Market analytics charts |
+| 📄 | jsPDF 4 | PDF property report export |
+| 🔣 | React Icons 5 | Icon library |
 
 ---
 
 <div align="center">
-
-Built with ❤️ by **Rustam Berheev**
-
-[![GitHub](https://img.shields.io/badge/GitHub-daudbro73--collab-181717?style=flat-square&logo=github)](https://github.com/daudbro73-collab)
-
+  <strong>Built by Rustam Berheev</strong><br/>
+  <a href="https://github.com/daudbro73-collab">github.com/daudbro73-collab</a>
 </div>
